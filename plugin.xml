@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="cordova-plugin-igp" version="0.0.1" 
+        xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>IBM Globalization Pipeline cordova plugin</name>
+    <description>This plugin provides possibility for apps built on cordova to implement globalization flexibly and easily. Apps only need to import igp cordova plugin during the development phase and call simple API. Besides, app team needs to submit translation script in IBM Globalization Pipeline in order to get translation result for each target language.</description>
+    <js-module name="igp" src="www/cordova-plugin-igp.js">
+        <clobbers target="igp"/>
+    </js-module>
+    <platform name="android">
+     
+    </platform>
+	<platform name="ios">
+     
+    </platform>
+
+</plugin>

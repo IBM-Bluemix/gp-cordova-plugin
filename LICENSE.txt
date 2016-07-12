@@ -1,6 +1,5 @@
  
-    IBM Globalization
-    IBM Confidential / Copyright (C) IBM Corp. 2015
+    Copyright (C) IBM Corp. 2015
   
    Licensed to the Apache Software Foundation (ASF) under one
    or more contributor license agreements.  See the NOTICE file

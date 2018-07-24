@@ -29,19 +29,26 @@ with Bluemix applications translated into the languages in which they work.
 Adding this plugin into your cordova-based project, your application can dynamically request translations of your application content
 from the IBM Globalization Pipeline.
 
-## Quick start
+## Getting started
 
-* #####Switch workspace to working cordova project
-* #####Add this plugin and dependency plugin into working project 
-```javascript 
+To get started, you should familiarize yourself with the service itself. A
+good place to begin is by reading the [Quick Start Guide](https://github.com/IBM-Bluemix/gp-common#quick-start-guide) and the official [Getting Started with IBM Globalization ](https://www.ng.bluemix.net/docs/services/GlobalizationPipeline/index.html) documentation.
+
+The documentation explains how to find the service on Bluemix, create a new service instance, create a new bundle, and access the translated messages.
+
+## Installation
+
+* Switch workspace to working cordova project
+* Add this plugin and dependency plugin into working project
+```javascript
 cordova plugin add cordova-plugin-file
 cordova plugin add cordova-plugin-igp
 ```
 
-* #####Initialize a client
+* Initialize a client
 ```javascript
 var args = {
-    uri: 'https://gp-beta-rest.bluemix.net/translate/rest',
+    uri: 'https://gp-dev-rest.bluemix.net/translate/rest',
     username: '1234',
 	password: '1234',
 	expireAfter: 3600   //time unit is second, 3600 means 1 hour
@@ -52,21 +59,21 @@ var client = igp.getClient(args);
     * Four arguments are required to initialize a client. `expireAfter` is the cache expiration duration.
     * `Client` object is used to communicate with IBM Globalization Pipeline deployed on IBM BlueMix to get resource data.
 
-* #####Get translation resource data from `IBM Globalization Pipeline`
+* Get translation resource data from `IBM Globalization Pipeline`
 ```javascript
 var args1 = { instanceId: '001',  bundleId: 'test2',
               langId: 'de', srcPath: 'www/res/12345.txt'};
 function successCB(result){
     //get the string format of object result and show it in main page.
     document.getElementById("loadTranslation").innerHTML = JSON.stringify(result);
-}	
+}
 function failureCB(err){
 	console.log(err.message)
-}	
+}
 client.getTranslation(args1, successCB, failureCB);
 ```
 
-## API convention 
+## API convention
 
 APIs which take two callbacks use this pattern:
 
@@ -93,7 +100,7 @@ API reference
         * [client.download(args, successCB, failureCB)](#module_igp..Client#download)
         * [client.loadTranslationInCache(args, successCB, failureCB)](#module_igp..Client#loadTranslationInCache)
     * [class:igp~ResourceData](#module_igp..ResourceData)
-	
+
 <a name="module_igp"></a>  
 
 <a name="module_igp..Client"></a>
@@ -147,7 +154,7 @@ var args = {
 
 <a name="module_igp..Client#download"></a>
 ###client.download(args, successCB, failureCB) - low level API
-**Description**: Plug-in checks if the resource data in plugin database expires. (The expiration duration is configured by the developer.). If cache expires, Plug-in will access the IBM Globalization Pipeline on bluemix to synchronize the resource data in the local storage with the server. 
+**Description**: Plug-in checks if the resource data in plugin database expires. (The expiration duration is configured by the developer.). If cache expires, Plug-in will access the IBM Globalization Pipeline on bluemix to synchronize the resource data in the local storage with the server.
 
 **Params**
 
@@ -171,15 +178,27 @@ var args = {
 **Description**: This class contains the resource data from IBM Globalization Pipeline.
 
 
-
-
-Support
+Community
 ===
-You can post questions about using this service in the developerWorks Answers site
-using the tag "[Globalization](https://developer.ibm.com/answers/topics/globalization/)".
+* View or file GitHub [Issues](https://github.com/IBM-Bluemix/gp-cordova-plugin/issues)
+* Connect with the open source community on [developerWorks Open](https://developer.ibm.com/open/ibm-bluemix-globalization-pipeline/cordova-sdk/)
 
-LICENSE
+Contributing
 ===
-Apache 2.0. See [LICENSE.txt]
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
+License
+===
+Apache 2.0. See [LICENSE.txt](LICENSE.txt).
 
+> Licensed under the Apache License, Version 2.0 (the "License");
+> you may not use this file except in compliance with the License.
+> You may obtain a copy of the License at
+>
+> http://www.apache.org/licenses/LICENSE-2.0
+>
+> Unless required by applicable law or agreed to in writing, software
+> distributed under the License is distributed on an "AS IS" BASIS,
+> WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+> See the License for the specific language governing permissions and
+> limitations under the License.
